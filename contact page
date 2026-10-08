@@ -1,0 +1,105 @@
+<!-- Contact Page -->
+<section id="contact" class="contact-section">
+
+    <h2 class="section-title">Contact Me</h2>
+
+    <div class="contact-container">
+
+        <p>
+            I would be happy to connect with you. You can contact me by email
+            or visit my professional profiles using the links below.
+        </p>
+
+        <div class="contact-details">
+
+            <!-- Email -->
+            <div class="contact-item">
+                <h3>Email</h3>
+                <p>
+                    <a href="mailto:ayaan32105@outlook.com">
+                        ayaan32105@outlook.com
+                    </a>
+                </p>
+            </div>
+
+            <!-- LinkedIn -->
+            <div class="contact-item">
+                <h3>LinkedIn</h3>
+                <p>
+                    <a href="https://www.linkedin.com/" target="_blank"
+                       rel="noopener noreferrer">
+                        View my LinkedIn Profile
+                    </a>
+                </p>
+            </div>
+
+            <!-- GitHub -->
+            <div class="contact-item">
+                <h3>GitHub</h3>
+                <p>
+                    <a href="https://github.com/" target="_blank"
+                       rel="noopener noreferrer">
+                        View my GitHub Profile
+                    </a>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+    .contact-section {
+        background: #ffffff;
+        padding: 70px 8%;
+        text-align: center;
+    }
+
+    .contact-container {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .contact-container > p {
+        color: #666;
+        font-size: 18px;
+        margin-bottom: 35px;
+    }
+
+    .contact-details {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .contact-item {
+        background: #f4f7fb;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-item h3 {
+        color: #1e3c72;
+        margin-bottom: 10px;
+    }
+
+    .contact-item a {
+        color: #2a5298;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .contact-item a:hover {
+        color: #1e3c72;
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .contact-details {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
