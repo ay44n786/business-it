@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ember &amp; Oak Salford | Restaurant Digital Transformation Case Study</title>
+  <meta name="description" content="Ember &amp; Oak, a fictional Salford grill house: online menu, table booking, feedback and loyalty sign-up. A web development case study by Ayaan Khan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Outfit:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+</head>
+<body class="restaurant-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ===== Site header and main navigation ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/logo.svg" alt="" width="36" height="36">
+        <span>Ayaan Khan</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="showcase.html">Showcase</a></li>
+          <li><a href="restaurant.html" aria-current="page">Restaurant Case Study</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===== Restaurant hero ===== -->
+    <section class="hero hero-restaurant">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">Problem-Solving Page &middot; Case study</p>
+          <h1>Ember &amp; Oak</h1>
+          <p class="lead">Wood-fired grill house on Chapel Street, Salford. Book a table, browse the menu and join our loyalty club, all from your phone.</p>
+          <p class="open-status" id="open-status" aria-live="polite">Checking opening hours&hellip;</p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="#book">Book a table</a>
+            <a class="btn btn-ghost" href="#menu">View the menu</a>
+          </div>
+        </div>
+        <figure class="hero-image">
+          <img src="images/restaurant-hero.svg" alt="Illustration of a grilled steak on a wooden board with flames behind it" width="520" height="400">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== Business context ===== -->
+    <section class="section" id="context">
+      <div class="container two-col">
+        <div>
+          <h2>Business context</h2>
+          <p>Ember &amp; Oak is a fictional, family-run, 60-cover restaurant. As its Chief Technology Officer, my job is to modernise how it deals with customers without adding cost or extra work for staff.</p>
+          <p>Right now, bookings come in by phone during the busiest hours, the menu is a PDF that's hard to read on a phone, there's no simple way to hear what customers think, and offers only reach people who walk past.</p>
+        </div>
+        <div class="card">
+          <h3>Digital transformation goals</h3>
+          <ul class="tick-list">
+            <li><strong>Customer engagement:</strong> loyalty club, promotions and social media</li>
+            <li><strong>Operational efficiency:</strong> fewer booking calls at peak times</li>
+            <li><strong>Customer experience:</strong> a mobile-friendly menu with dietary filters</li>
+            <li><strong>Communication:</strong> direct feedback to the manager</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Promotions ===== -->
+    <section class="section section-alt" aria-labelledby="offers-title">
+      <div class="container">
+        <h2 id="offers-title">This week's offers</h2>
+        <div class="card-grid">
+          <article class="card offer">
+            <h3>Midweek Grill Night</h3>
+            <p>Two steaks and a bottle of house soft drink for &pound;45, Tuesday to Thursday.</p>
+          </article>
+          <article class="card offer">
+            <h3>Student Lunch</h3>
+            <p>15% off lunch from 12:00 to 15:00 with a valid student card.</p>
+          </article>
+          <article class="card offer">
+            <h3>Loyalty Club</h3>
+            <p>Every 5th visit gets a free dessert. Sign up with the form below.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Online menu with dietary filter (JavaScript) ===== -->
+    <section class="section" id="menu">
+      <div class="container">
+        <h2>Menu</h2>
+        <p>Use the buttons to filter by what you eat. All meat is halal.</p>
+        <div class="filter-bar" role="group" aria-label="Filter the menu">
+          <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" type="button" data-filter="grill" aria-pressed="false">From the grill</button>
+          <button class="filter-btn" type="button" data-filter="vegetarian" aria-pressed="false">Vegetarian</button>
+          <button class="filter-btn" type="button" data-filter="vegan" aria-pressed="false">Vegan</button>
+          <button class="filter-btn" type="button" data-filter="dessert" aria-pressed="false">Desserts</button>
+        </div>
+        <p class="filter-count" id="filter-count" aria-live="polite">Showing 8 dishes</p>
+        <ul class="menu-grid" id="menu-list">
+          <li class="menu-item" data-tags="grill"><h3>Ribeye Steak 10oz</h3><p>Chargrilled with peppercorn sauce and triple-cooked chips.</p><span class="price">&pound;24.00</span></li>
+          <li class="menu-item" data-tags="grill"><h3>Oak-Smoked Lamb Chops</h3><p>Four chops, mint yoghurt, charred flatbread.</p><span class="price">&pound;19.50</span></li>
+          <li class="menu-item" data-tags="grill"><h3>Ember Burger</h3><p>Double beef patty, smoked cheese, brioche bun, fries.</p><span class="price">&pound;14.00</span></li>
+          <li class="menu-item" data-tags="vegetarian"><h3>Grilled Halloumi Stack</h3><p>Halloumi, roasted peppers, pesto and rocket.</p><span class="price">&pound;13.00</span></li>
+          <li class="menu-item" data-tags="vegetarian vegan"><h3>Fire-Roasted Cauliflower</h3><p>Whole cauliflower, tahini, pomegranate and herbs.</p><span class="price">&pound;12.50</span></li>
+          <li class="menu-item" data-tags="vegetarian vegan"><h3>Smoky Bean Chilli</h3><p>Three-bean chilli, rice and charred corn.</p><span class="price">&pound;11.00</span></li>
+          <li class="menu-item" data-tags="dessert vegetarian"><h3>Sticky Toffee Pudding</h3><p>With vanilla ice cream.</p><span class="price">&pound;7.00</span></li>
+          <li class="menu-item" data-tags="dessert vegetarian vegan"><h3>Dark Chocolate Pot</h3><p>Rich dairy-free chocolate pot with berries.</p><span class="price">&pound;6.50</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Booking / feedback / loyalty form (generates an email) ===== -->
+    <section class="section section-alt" id="book">
+      <div class="container form-layout">
+        <div>
+          <h2>Book, give feedback or join the club</h2>
+          <p>Fill this in and press the button. Your email app opens with a message already written to us, so you just press send. Nothing is stored on this website.</p>
+          <ul class="tick-list">
+            <li>Bookings are confirmed by reply within 2 hours</li>
+            <li>Feedback goes straight to the manager</li>
+            <li>Groups of more than 12, please call us</li>
+          </ul>
+        </div>
+
+        <form class="card enquiry-form" id="enquiry-form" novalidate>
+          <fieldset>
+            <legend>What would you like to do?</legend>
+            <div class="radio-row">
+              <label><input type="radio" name="type" value="booking" checked> Book a table</label>
+              <label><input type="radio" name="type" value="feedback"> Leave feedback</label>
+              <label><input type="radio" name="type" value="loyalty"> Join the Loyalty Club</label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+            <p class="error" id="name-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+            <p class="error" id="email-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone number <span class="optional">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel">
+            <p class="error" id="phone-error"></p>
+          </div>
+
+          <!-- Booking-only fields: shown or hidden by JavaScript -->
+          <div class="booking-fields" id="booking-fields">
+            <div class="field-row">
+              <div class="field">
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date">
+                <p class="error" id="date-error"></p>
+              </div>
+              <div class="field">
+                <label for="time">Time</label>
+                <select id="time" name="time">
+                  <option value="">Choose a time</option>
+                  <option>12:00</option><option>13:00</option><option>14:00</option>
+                  <option>17:00</option><option>18:00</option><option>19:00</option>
+                  <option>20:00</option><option>21:00</option>
+                </select>
+                <p class="error" id="time-error"></p>
+              </div>
+              <div class="field">
+                <label for="guests">Guests</label>
+                <input type="number" id="guests" name="guests" min="1" max="12" value="2">
+                <p class="error" id="guests-error"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feedback-only field -->
+          <div class="field feedback-fields" id="feedback-fields" hidden>
+            <label for="rating">How was your visit?</label>
+            <select id="rating" name="rating">
+              <option value="5">5 - Excellent</option>
+              <option value="4">4 - Good</option>
+              <option value="3">3 - OK</option>
+              <option value="2">2 - Poor</option>
+              <option value="1">1 - Very poor</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message" id="message-label">Special requests <span class="optional">(optional)</span></label>
+            <textarea id="message" name="message" rows="4" maxlength="500"></textarea>
+            <p class="char-count" id="char-count">0 / 500</p>
+            <p class="error" id="message-error"></p>
+          </div>
+
+          <div class="field checkbox-field">
+            <label><input type="checkbox" id="consent" name="consent"> I agree that Ember &amp; Oak can use these details to reply to me, as explained in the <a href="#privacy">privacy notice</a>.</label>
+            <p class="error" id="consent-error"></p>
+          </div>
+
+          <button class="btn btn-primary btn-block" type="submit">Create my email</button>
+
+          <!-- Preview of the generated email -->
+          <div class="email-preview" id="email-preview" hidden>
+            <h3>Your email is ready</h3>
+            <p>If your email app didn't open, copy the text below and send it to <a href="mailto:bookings@emberandoak.example">bookings@emberandoak.example</a>.</p>
+            <pre id="preview-text"></pre>
+            <a class="btn btn-ghost btn-small" id="preview-link" href="mailto:bookings@emberandoak.example">Open in email app</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== Contact details and social media ===== -->
+    <section class="section" id="find-us">
+      <div class="container contact-grid">
+        <div class="card">
+          <h2 class="h3">Find us</h2>
+          <address>
+            Ember &amp; Oak<br>
+            120 Chapel Street<br>
+            Salford, M3 6AF
+          </address>
+          <p><a href="tel:+441610000000">0161 000 0000</a></p>
+          <p><a href="mailto:bookings@emberandoak.example">bookings@emberandoak.example</a></p>
+        </div>
+        <div class="card">
+          <h2 class="h3">Opening hours</h2>
+          <table class="hours-table">
+            <caption class="visually-hidden">Opening hours</caption>
+            <tbody>
+              <tr><th scope="row">Monday</th><td>Closed</td></tr>
+              <tr><th scope="row">Tuesday to Thursday</th><td>12:00 to 22:00</td></tr>
+              <tr><th scope="row">Friday and Saturday</th><td>12:00 to 23:00</td></tr>
+              <tr><th scope="row">Sunday</th><td>12:00 to 21:00</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <h2 class="h3">Follow us</h2>
+          <p>Offers and new dishes go on our socials first.</p>
+          <ul class="social-list">
+            <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src="images/icon-facebook.svg" alt="" width="28" height="28"> Facebook</a></li>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><img src="images/icon-instagram.svg" alt="" width="28" height="28"> Instagram</a></li>
+            <li><a href="https://x.com/" target="_blank" rel="noopener noreferrer"><img src="images/icon-x.svg" alt="" width="28" height="28"> X (Twitter)</a></li>
+          </ul>
+          <p class="note">Ember &amp; Oak is fictional, so these link to each platform's home page.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Privacy, security and GDPR ===== -->
+    <section class="section section-alt" id="privacy">
+      <div class="container">
+        <h2>Privacy, security and cookies</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>What we collect</h3>
+            <p>Only what you type into the form: name, email, optional phone, and booking or feedback details. We collect the minimum needed to reply (UK GDPR data minimisation).</p>
+          </article>
+          <article class="card">
+            <h3>How it's used</h3>
+            <p>Your details are sent by your own email app, straight to the restaurant. This website stores nothing. We use them only to answer you and delete booking emails after 12 months.</p>
+          </article>
+          <article class="card">
+            <h3>Your rights</h3>
+            <p>You can ask to see, correct or delete your data at any time by emailing us. Loyalty Club members can leave by replying "unsubscribe".</p>
+          </article>
+          <article class="card">
+            <h3>Cookies</h3>
+            <p>There are no tracking or advertising cookies. Your choice on the cookie notice is saved in your browser's local storage so it doesn't keep asking. <button class="link-button" type="button" id="reset-cookies">Change my cookie choice</button></p>
+          </article>
+          <article class="card">
+            <h3>Security</h3>
+            <p>The site is served over HTTPS by GitHub Pages. The form checks what you type before building the email, and no payment details are ever asked for.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Design choices ===== -->
+    <section class="section" id="design-choices">
+      <div class="container">
+        <h2>Design choices</h2>
+        <div class="table-wrap">
+          <table>
+            <caption>Each feature and the business problem it solves</caption>
+            <thead>
+              <tr><th scope="col">Feature</th><th scope="col">Business problem</th><th scope="col">Why this approach</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Filterable menu</td><td>The PDF menu was hard to read on phones</td><td>Plain HTML text loads fast, can be found by search engines and is read out by screen readers</td></tr>
+              <tr><td>Email-generating form</td><td>Booking calls tie up staff at peak times</td><td>No database or monthly booking-software fee; staff reply from the inbox they already use</td></tr>
+              <tr><td>Feedback and rating</td><td>No direct way to hear from customers</td><td>Complaints reach the manager privately before they turn into public reviews</td></tr>
+              <tr><td>Loyalty Club</td><td>Customers don't have a reason to come back</td><td>A simple sign-up builds an opt-in mailing list for promotions</td></tr>
+              <tr><td>"Open now" status</td><td>Customers ring to ask if the restaurant is open</td><td>JavaScript checks the opening hours against the visitor's clock</td></tr>
+              <tr><td>Social links</td><td>Offers only reach passing trade</td><td>Facebook, Instagram and X reach the local student and family market</td></tr>
+              <tr><td>Mobile-first, accessible layout</td><td>Most diners search on their phone</td><td>Large tap targets, real labels, strong contrast, keyboard friendly</td></tr>
+              <tr><td>Basic SEO</td><td>The restaurant is hard to find on Google</td><td>A clear page title, meta description, proper headings and alt text on images</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> Ayaan Khan. Ember &amp; Oak is a fictional restaurant created for a university case study.</p>
+      <p><a href="#privacy">Privacy and cookies</a></p>
+    </div>
+  </footer>
+
+  <!-- ===== Cookie consent notice ===== -->
+  <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie notice" hidden>
+    <p>This site does not use tracking or advertising cookies. It only saves your choice on this notice in your browser. <a href="#privacy">Read the privacy notice</a>.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-primary btn-small" type="button" data-cookie="accept">Accept</button>
+      <button class="btn btn-ghost btn-small" type="button" data-cookie="decline">Decline</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/restaurant.js"></script>
+</body>
+</html>
