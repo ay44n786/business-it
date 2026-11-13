@@ -7,7 +7,7 @@
   <meta name="description" content="Ember &amp; Oak, a fictional Salford grill house: online menu, table booking, feedback and loyalty sign-up. A web development case study by Ayaan Khan.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Outfit:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
 </head>
@@ -39,7 +39,7 @@
     <section class="hero hero-restaurant">
       <div class="container hero-inner">
         <div class="hero-text">
-          <p class="eyebrow">Problem-Solving Page &middot; Case study</p>
+          <p class="eyebrow">Problem-Solving Page: restaurant case study</p>
           <h1>Ember &amp; Oak</h1>
           <p class="lead">Wood-fired grill house on Chapel Street, Salford. Book a table, browse the menu and join our loyalty club, all from your phone.</p>
           <p class="open-status" id="open-status" aria-live="polite">Checking opening hours&hellip;</p>
@@ -60,7 +60,7 @@
         <div>
           <h2>Business context</h2>
           <p>Ember &amp; Oak is a fictional, family-run, 60-cover restaurant. As its Chief Technology Officer, my job is to modernise how it deals with customers without adding cost or extra work for staff.</p>
-          <p>Right now, bookings come in by phone during the busiest hours, the menu is a PDF that's hard to read on a phone, there's no simple way to hear what customers think, and offers only reach people who walk past.</p>
+          <p>At the moment, bookings come in by phone, usually right when it’s busiest and staff have the least time. The menu is a PDF that’s a pain to read on a phone, there’s no easy way for customers to say what they think, and offers only reach people who happen to walk past.</p>
         </div>
         <div class="card">
           <h3>Digital transformation goals</h3>
@@ -77,7 +77,7 @@
     <!-- ===== Promotions ===== -->
     <section class="section section-alt" aria-labelledby="offers-title">
       <div class="container">
-        <h2 id="offers-title">This week's offers</h2>
+        <h2 id="offers-title">This week’s offers</h2>
         <div class="card-grid">
           <article class="card offer">
             <h3>Midweek Grill Night</h3>
@@ -118,6 +118,19 @@
           <li class="menu-item" data-tags="dessert vegetarian"><h3>Sticky Toffee Pudding</h3><p>With vanilla ice cream.</p><span class="price">&pound;7.00</span></li>
           <li class="menu-item" data-tags="dessert vegetarian vegan"><h3>Dark Chocolate Pot</h3><p>Rich dairy-free chocolate pot with berries.</p><span class="price">&pound;6.50</span></li>
         </ul>
+
+        <!-- Steak guide: so customers know what each cooking level means before they order -->
+        <details class="steak-guide">
+          <summary>How do you like your steak? Our cooking guide</summary>
+          <dl>
+            <dt>Rare</dt><dd>Seared outside, cool and red in the middle. Very soft.</dd>
+            <dt>Medium rare</dt><dd>Warm, red centre. Our chef’s recommendation for the ribeye.</dd>
+            <dt>Medium</dt><dd>Hot, pink centre with a firmer bite.</dd>
+            <dt>Medium well</dt><dd>Just a hint of pink in the middle.</dd>
+            <dt>Well done</dt><dd>Cooked all the way through, no pink. Firmer and takes a few minutes longer.</dd>
+          </dl>
+          <p>Not happy with how it came out? Tell your server, or let us know with the feedback form below.</p>
+        </details>
       </div>
     </section>
 
@@ -201,7 +214,7 @@
           </div>
 
           <div class="field">
-            <label for="message" id="message-label">Special requests <span class="optional">(optional)</span></label>
+            <label for="message" id="message-label">Special requests or allergies <span class="optional">(optional)</span></label>
             <textarea id="message" name="message" rows="4" maxlength="500"></textarea>
             <p class="char-count" id="char-count">0 / 500</p>
             <p class="error" id="message-error"></p>
@@ -217,7 +230,7 @@
           <!-- Preview of the generated email -->
           <div class="email-preview" id="email-preview" hidden>
             <h3>Your email is ready</h3>
-            <p>If your email app didn't open, copy the text below and send it to <a href="mailto:bookings@emberandoak.example">bookings@emberandoak.example</a>.</p>
+            <p>If your email app didn’t open, copy the text below and send it to <a href="mailto:bookings@emberandoak.example">bookings@emberandoak.example</a>.</p>
             <pre id="preview-text"></pre>
             <a class="btn btn-ghost btn-small" id="preview-link" href="mailto:bookings@emberandoak.example">Open in email app</a>
           </div>
@@ -235,7 +248,7 @@
             120 Chapel Street<br>
             Salford, M3 6AF
           </address>
-          <p><a href="tel:+441610000000">0161 000 0000</a></p>
+          <p><a href="tel:+441614960000">0161 496 0000</a></p>
           <p><a href="mailto:bookings@emberandoak.example">bookings@emberandoak.example</a></p>
         </div>
         <div class="card">
@@ -258,7 +271,7 @@
             <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><img src="images/icon-instagram.svg" alt="" width="28" height="28"> Instagram</a></li>
             <li><a href="https://x.com/" target="_blank" rel="noopener noreferrer"><img src="images/icon-x.svg" alt="" width="28" height="28"> X (Twitter)</a></li>
           </ul>
-          <p class="note">Ember &amp; Oak is fictional, so these link to each platform's home page.</p>
+          <p class="note">Ember &amp; Oak is fictional, so these link to each platform’s home page.</p>
         </div>
       </div>
     </section>
@@ -273,7 +286,7 @@
             <p>Only what you type into the form: name, email, optional phone, and booking or feedback details. We collect the minimum needed to reply (UK GDPR data minimisation).</p>
           </article>
           <article class="card">
-            <h3>How it's used</h3>
+            <h3>How it’s used</h3>
             <p>Your details are sent by your own email app, straight to the restaurant. This website stores nothing. We use them only to answer you and delete booking emails after 12 months.</p>
           </article>
           <article class="card">
@@ -282,7 +295,7 @@
           </article>
           <article class="card">
             <h3>Cookies</h3>
-            <p>There are no tracking or advertising cookies. Your choice on the cookie notice is saved in your browser's local storage so it doesn't keep asking. <button class="link-button" type="button" id="reset-cookies">Change my cookie choice</button></p>
+            <p>There are no tracking or advertising cookies. Your choice on the cookie notice is saved in your browser’s local storage so it doesn’t keep asking. <button class="link-button" type="button" id="reset-cookies">Change my cookie choice</button></p>
           </article>
           <article class="card">
             <h3>Security</h3>
@@ -306,11 +319,26 @@
               <tr><td>Filterable menu</td><td>The PDF menu was hard to read on phones</td><td>Plain HTML text loads fast, can be found by search engines and is read out by screen readers</td></tr>
               <tr><td>Email-generating form</td><td>Booking calls tie up staff at peak times</td><td>No database or monthly booking-software fee; staff reply from the inbox they already use</td></tr>
               <tr><td>Feedback and rating</td><td>No direct way to hear from customers</td><td>Complaints reach the manager privately before they turn into public reviews</td></tr>
-              <tr><td>Loyalty Club</td><td>Customers don't have a reason to come back</td><td>A simple sign-up builds an opt-in mailing list for promotions</td></tr>
-              <tr><td>"Open now" status</td><td>Customers ring to ask if the restaurant is open</td><td>JavaScript checks the opening hours against the visitor's clock</td></tr>
+              <tr><td>Loyalty Club</td><td>Customers don’t have a reason to come back</td><td>A simple sign-up builds an opt-in mailing list for promotions</td></tr>
+              <tr><td>"Open now" status</td><td>Customers ring to ask if the restaurant is open</td><td>JavaScript checks the opening hours against the visitor’s clock</td></tr>
               <tr><td>Social links</td><td>Offers only reach passing trade</td><td>Facebook, Instagram and X reach the local student and family market</td></tr>
               <tr><td>Mobile-first, accessible layout</td><td>Most diners search on their phone</td><td>Large tap targets, real labels, strong contrast, keyboard friendly</td></tr>
               <tr><td>Basic SEO</td><td>The restaurant is hard to find on Google</td><td>A clear page title, meta description, proper headings and alt text on images</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="spaced">Lessons from my time waiting tables at Hot Rock Steakhouse</h3>
+        <div class="table-wrap">
+          <table>
+            <caption>Real problems I saw front of house, and how this page deals with them</caption>
+            <thead>
+              <tr><th scope="col">Problem I saw at Hot Rock</th><th scope="col">What I did on the site</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Orders sometimes went wrong in the kitchen, especially with special requests</td><td>The booking form has a “special requests or allergies” box, so the restaurant knows what’s needed before the customer even sits down</td></tr>
+              <tr><td>Customers often complained about how their steak was cooked</td><td>The menu has a short guide explaining what rare, medium and well done actually mean, so people know what to expect. The feedback form also shows the owner if it keeps happening</td></tr>
+              <tr><td>The menu was a QR code that opened on your phone and was hard to read</td><td>The menu is a proper web page built for phones, with big readable text and no zooming in or downloading a PDF</td></tr>
             </tbody>
           </table>
         </div>
