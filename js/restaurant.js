@@ -96,7 +96,7 @@ function updateFormFields(form) {
 
   // The message box means something different for each type
   if (type === "booking") {
-    messageLabel.innerHTML = "Special requests <span class=\"optional\">(optional)</span>";
+    messageLabel.innerHTML = "Special requests or allergies <span class=\"optional\">(optional)</span>";
   } else if (type === "feedback") {
     messageLabel.textContent = "Your feedback";
   } else {
@@ -176,6 +176,19 @@ function validateForm(form) {
     if (form.time.value === "") {
       showError("time", "Please pick a time.");
       valid = false;
+    } else if (date !== "") {
+      // Check the time against that day's opening hours
+      const bookingHour = Number(form.time.value.split(":")[0]);
+      const hours = OPENING_HOURS[new Date(date + "T12:00:00").getDay()];
+      const now = new Date();
+
+      if (hours && bookingHour >= hours.close) {
+        showError("time", "We close at " + hours.close + ":00 that day. Please pick an earlier time.");
+        valid = false;
+      } else if (date === todayAsInputValue() && bookingHour <= now.getHours()) {
+        showError("time", "That time has already passed today. Please pick a later time.");
+        valid = false;
+      }
     }
 
     if (!Number.isInteger(guests) || guests < 1 || guests > 12) {
@@ -229,7 +242,7 @@ function buildEmail(form) {
 
   if (form.message.value.trim() !== "") {
     lines.push("");
-    lines.push(type === "feedback" ? "Feedback:" : "Notes:");
+    lines.push(type === "feedback" ? "Feedback:" : (type === "booking" ? "Special requests or allergies:" : "Notes:"));
     lines.push(form.message.value.trim());
   }
 

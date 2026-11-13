@@ -3,8 +3,7 @@
    1. Mobile navigation toggle
    2. Cookie consent notice
    3. Footer year
-   4. Skill bars animate when scrolled into view (Skills page)
-   5. Copy email button (Contact page)
+   4. Copy email button (Contact page)
    ========================================================= */
 
 "use strict";
@@ -94,32 +93,7 @@ function setFooterYear() {
   }
 }
 
-/* ---------- 4. Skill bars ---------- */
-function setupSkillBars() {
-  const grid = document.querySelector(".skill-grid");
-  if (!grid) {
-    return;
-  }
-
-  // Older browsers without IntersectionObserver just show the bars
-  if (!("IntersectionObserver" in window)) {
-    grid.classList.add("is-visible");
-    return;
-  }
-
-  const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        grid.classList.add("is-visible");
-        observer.disconnect();
-      }
-    });
-  }, { threshold: 0.3 });
-
-  observer.observe(grid);
-}
-
-/* ---------- 5. Copy email button ---------- */
+/* ---------- 4. Copy email button ---------- */
 function setupCopyEmail() {
   const button = document.getElementById("copy-email");
   const status = document.getElementById("copy-status");
@@ -148,6 +122,5 @@ document.addEventListener("DOMContentLoaded", function () {
   setupNavToggle();
   setupCookieBanner();
   setFooterYear();
-  setupSkillBars();
   setupCopyEmail();
 });
